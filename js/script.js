@@ -11,7 +11,26 @@
 // UN SOLO oggetto studente inserendo nell’ordine: nome, cognome e età.
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    function objectCaseAdjusted(k) {
+
+        return k[0].toUpperCase() + k.slice(1);
+
+    }
     
-    
+    // PARTE 1
+    var student = {
+        name: "Mattia",
+        surname: "Ferrari",
+        age: "24"
+    };
+
+    var studentHtmlElement = document.getElementById('student');
+
+    for (const key in student) {
+        
+        studentHtmlElement.innerHTML += objectCaseAdjusted(key) + ": " + student[key] + "<br>";
+            
+    }
 
 })
