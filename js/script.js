@@ -12,49 +12,52 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    function objectCaseAdjusted(k) {
+    function caseAdjusted(k) {
 
-        return k[0].toUpperCase() + k.slice(1);
+        return k[0].toUpperCase() + k.slice(1).toLowerCase();
 
     }
     
     // PARTE 1
-    var student = {
+    var professor = {
         name: "Mattia",
         surname: "Ferrari",
         age: "24"
     };
 
-    var studentHtmlElement = document.getElementById('student');
+    var professorHtmlElement = document.getElementById('professor');
 
-    for (const key in student) {
+    for (const key in professor) {
         
-        studentHtmlElement.innerHTML += objectCaseAdjusted(key) + ": " + student[key] + "<br>";
+        professorHtmlElement.innerHTML += "<li>" + caseAdjusted(key) + ": " + professor[key] + "</li><br>";
             
     }
 
     // PARTE 2
     var students = [
 
-        student1 = {
-            name: "Mattia",
-            surname: "Ferrari",
-            age: "24"
-        },
+        {name: "Mattia", surname: "Ferrari", age: "24"},
 
-        student2 = {
-            name: "Pinco",
-            surname: "Pallo",
-            age: "21"
-        },
+        {name: "Pinco", surname: "Pallo", age: "21"},
 
-        student3 = {
-            name: "Mario",
-            surname: "Rossi",
-            age: "31"
-        }
+        {name: "Mario", surname: "Rossi", age: "31"}
 
     ];
+
+    // PARTE 3
+    while (students.length < 4) {
+        
+        var newStudentName = prompt("Qual è il nome del nuovo studente?");
+        var newStudentSurname = prompt("Qual è il cognome del nuovo studente?");
+        var newStudentAge = prompt("Qual è l'età del nuovo studente?");
+
+        students.push({
+            name: caseAdjusted(newStudentName),
+            surname: caseAdjusted(newStudentSurname),
+            age: caseAdjusted(newStudentAge)
+        });
+
+    }
 
     var studentsHtmlElement = document.getElementById('students');
 
@@ -62,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (const chiave in students[i]) {
 
-            studentsHtmlElement.innerHTML += objectCaseAdjusted(chiave) + ": " + students[i][chiave] + "<br>";
+            studentsHtmlElement.innerHTML += "<li>" + caseAdjusted(chiave) + ": " + students[i][chiave] + "</li><br>";
 
-        }  
-        
+        }
+
     }
 
 })
